@@ -255,7 +255,7 @@ static esp_err_t http_server_get_handler(httpd_req_t *req){
 		else if(strcmp(req->uri, http_js_url) == 0){
 			httpd_resp_set_status(req, http_200_hdr);
 			httpd_resp_set_type(req, http_content_type_js);
-			httpd_resp_send(req, (char*)code_js_start, code_js_end - code_js_start);
+			httpd_resp_send(req, (char*)code_js_start, code_js_end - code_js_start - 1);
 		}
 		/* GET /style.css */
 		else if(strcmp(req->uri, http_css_url) == 0){

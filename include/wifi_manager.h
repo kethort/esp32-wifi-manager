@@ -66,20 +66,20 @@ extern "C" {
  * @brief Defines the maximum number of failed retries allowed before the WiFi manager starts its own access point.
  * Setting it to 2 for instance means there will be 3 attempts in total (original request + 2 retries)
  */
-#define WIFI_MANAGER_MAX_RETRY_START_AP		CONFIG_WIFI_MANAGER_MAX_RETRY_START_AP
+#define WIFI_MANAGER_MAX_RETRY_START_AP		3
 
 /**
  * @brief Time (in ms) between each retry attempt
  * Defines the time to wait before an attempt to re-connect to a saved wifi is made after connection is lost or another unsuccesful attempt is made.
  */
-#define WIFI_MANAGER_RETRY_TIMER			CONFIG_WIFI_MANAGER_RETRY_TIMER
+#define WIFI_MANAGER_RETRY_TIMER			5000
 
 
 /**
  * @brief Time (in ms) to wait before shutting down the AP
  * Defines the time (in ms) to wait after a succesful connection before shutting down the access point.
  */
-#define WIFI_MANAGER_SHUTDOWN_AP_TIMER		CONFIG_WIFI_MANAGER_SHUTDOWN_AP_TIMER
+#define WIFI_MANAGER_SHUTDOWN_AP_TIMER		60000
 
 
 /** @brief Defines the task priority of the wifi_manager.
@@ -89,7 +89,7 @@ extern "C" {
  * it to 1 though as the sub-tasks will now have a priority of 0 which is the priority
  * of freeRTOS' idle task.
  */
-#define WIFI_MANAGER_TASK_PRIORITY			CONFIG_WIFI_MANAGER_TASK_PRIORITY
+#define WIFI_MANAGER_TASK_PRIORITY			5
 
 /** @brief Defines the auth mode as an access point
  *  Value must be of type wifi_auth_mode_t
@@ -102,13 +102,13 @@ extern "C" {
 #define DEFAULT_AP_SSID_HIDDEN 				0
 
 /** @brief Defines access point's name. Default value: esp32. Run 'make menuconfig' to setup your own value or replace here by a string */
-#define DEFAULT_AP_SSID 					CONFIG_DEFAULT_AP_SSID
+#define DEFAULT_AP_SSID 					"esp32"
 
 /** @brief Defines access point's password.
  *	@warning In the case of an open access point, the password must be a null string "" or "\0" if you want to be verbose but waste one byte.
  *	In addition, the AP_AUTHMODE must be WIFI_AUTH_OPEN
  */
-#define DEFAULT_AP_PASSWORD 				CONFIG_DEFAULT_AP_PASSWORD
+#define DEFAULT_AP_PASSWORD 				"esp32pwd"
 
 /** @brief Defines the hostname broadcasted by mDNS */
 #define DEFAULT_HOSTNAME					"esp32"
@@ -126,24 +126,24 @@ extern "C" {
  *  For 20 MHz: 1, 6 or 11 in USA and 1, 5, 9 or 13 in most parts of the world
  *  For 40 MHz: 3 in USA and 3 or 11 in most parts of the world
  */
-#define DEFAULT_AP_CHANNEL 					CONFIG_DEFAULT_AP_CHANNEL
+#define DEFAULT_AP_CHANNEL 					1
 
 
 
 /** @brief Defines the access point's default IP address. Default: "10.10.0.1 */
-#define DEFAULT_AP_IP						CONFIG_DEFAULT_AP_IP
+#define DEFAULT_AP_IP						"192.168.4.1"
 
 /** @brief Defines the access point's gateway. This should be the same as your IP. Default: "10.10.0.1" */
-#define DEFAULT_AP_GATEWAY					CONFIG_DEFAULT_AP_GATEWAY
+#define DEFAULT_AP_GATEWAY					"192.168.1.1"
 
 /** @brief Defines the access point's netmask. Default: "255.255.255.0" */
-#define DEFAULT_AP_NETMASK					CONFIG_DEFAULT_AP_NETMASK
+#define DEFAULT_AP_NETMASK					"255.255.255.0"
 
 /** @brief Defines access point's maximum number of clients. Default: 4 */
-#define DEFAULT_AP_MAX_CONNECTIONS		 	CONFIG_DEFAULT_AP_MAX_CONNECTIONS
+#define DEFAULT_AP_MAX_CONNECTIONS		 	4
 
 /** @brief Defines access point's beacon interval. 100ms is the recommended default. */
-#define DEFAULT_AP_BEACON_INTERVAL 			CONFIG_DEFAULT_AP_BEACON_INTERVAL
+#define DEFAULT_AP_BEACON_INTERVAL 			100
 
 /** @brief Defines if esp32 shall run both AP + STA when connected to another AP.
  *  Value: 0 will have the own AP always on (APSTA mode)
